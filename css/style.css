@@ -23,11 +23,13 @@ Table Of Contents:
 :root {
 	--primary: #194b64;
 	--primary-light: #287297;;
-	--secondary: #7F51E8ff;
-	--tertiary: #43bdfa;
+	/* --secondary: #7F51E8ff; */
+	--secondary: #23194f;
+	/* --tertiary: #43bdfa; */
+	--tertiary: #ddfef8;
 	
-	--gradient: linear-gradient(to right, #43bdfa, #7F51E8ff);
-	--gradient-light: linear-gradient(to right, #43bdfa, #7F51E8ff);	
+	--gradient: linear-gradient(to right, #43bdfa, #23194f);
+	--gradient-light: linear-gradient(to right, #43bdfa, #23194f);	
 	
 	
 }
@@ -58,7 +60,7 @@ h4 {
 }
 
 a {
-	color: white;
+	color: var(--tertiary);
 	text-decoration: none;
 }
 
@@ -231,8 +233,8 @@ li {
 		linear,
 		left top,
 		left bottom,
-		from(#0ee951),
-		to(#00dabf)
+		from(#43bdfa),
+		to(#7F51E8ff)
 	);
 	background-clip: text;
 	-webkit-background-clip: text;
@@ -373,7 +375,7 @@ li {
 	border-image-slice: 1;
 	border-width: 2px;
 	border-image-source: var(--gradient);
-	box-shadow: 5px 5px 0px 0px #0ee951;
+	box-shadow: 10px 10px 0px 0px #23194f;
 }
 
 
