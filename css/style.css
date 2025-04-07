@@ -287,14 +287,42 @@ li {
 /***********************/
 .information .container-fluid .row div:first-child {
   	background-color: var(--primary);
+	padding-bottom: 1rem;
+	
 }
 
 .information .container-fluid .row div:last-child {
-  	background-color: white;
+  	background-color:whitesmoke;
+	padding-bottom: 1rem;
 }
 
 .information .container-fluid .row div:nth-child(2) {
   	background-color: var(--primary-light);
+	padding-bottom: 1rem;
+
+	
+}
+
+.read-more {
+	color: #7F51E8ff;
+	font-size: larger;
+	font-weight: bold;
+	position: relative;
+}
+
+.read-more::after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 4px;
+	background: #7F51E8ff;
+	bottom: 0;
+	left: 0;
+	transition: width 0.4s ease;
+}
+
+.read-more:hover::after {
+	width: 100%;
 }
 
 
@@ -302,7 +330,7 @@ li {
 /*     Button     */
 /******************/
 .btn {
-	color: white;
+	color: #ffffff;
 	border-radius: 0;
 	border-width: 2px;
 	padding: 10px 30px;
