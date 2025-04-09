@@ -189,8 +189,23 @@
     </button>
     <!-- end of back to top button -->
     
-
-
+    
+    <!-- Scripts is important for smooth transaction link -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if URL has a hash
+        if(window.location.hash) {
+            // Wait a brief moment for all elements to load
+            setTimeout(function() {
+                const target = document.querySelector(window.location.hash);
+                if(target) {
+                    // Smooth scroll to the target
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 200);
+        }
+    });
+    </script>
 
     
     <!-- Scripts -->

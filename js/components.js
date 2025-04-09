@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 'bottom-component', file: 'bottom.html' },
         { id: 'nav_logo-component', file: 'logo_navbar.html' },
 
+        { id: 'page-navnbar-component', file: 'page_navbar.html' },
+        { id: 'page-footer-component', file: 'page_footer.html' },
+
 
 
   
