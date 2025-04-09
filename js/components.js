@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 'page-navnbar-component', file: 'page_navbar.html' },
         { id: 'page-footer-component', file: 'page_footer.html' },
 
+        { id: 'banking_partners-component', file: 'banking_partners.html' },
+
 
 
   
