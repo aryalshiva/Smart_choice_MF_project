@@ -420,6 +420,14 @@ li {
 	transform: translate(5px, 5px);
 }
 
+/********************/
+/*     FAQ     */
+/********************/
+
+.faq-section .accordion-button {
+	font-weight: bold;
+}
+
 
 /********************/
 /*     Services     */
