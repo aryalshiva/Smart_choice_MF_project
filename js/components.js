@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         { id: 'banking_partners-component', file: 'banking_partners.html' },
 
+        { id: 'useful-tools-component', file: 'useful_tools.html' },
+
 
 
   

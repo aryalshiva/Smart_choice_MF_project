@@ -322,14 +322,14 @@ li {
 
 .information .container-fluid .row div:last-child {
 
-	background-color: var(--primary-light);
+	background-color:whitesmoke;
 	padding-bottom: 1rem;
 	color:#0f0f11;
 }
 
 .information .container-fluid .row div:nth-child(2) {
 	
-	background-color:whitesmoke;
+	background-color: var(--primary-light);
 	padding-bottom: 1rem;
     color: #0f0f11;
 
