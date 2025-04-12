@@ -22,7 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         { id: 'useful-tools-component', file: 'useful_tools.html' },
 
-        { id: 'question-answer-component', file: 'question_answer.html' }
+        { id: 'question-answer-component', file: 'question_answer.html' },
+
+        { id: 'card-component', file: 'card_design.html' },
     ];
 
     components.forEach(component => {

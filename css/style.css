@@ -311,6 +311,59 @@ li {
 
 
 /***********************/
+/*     Consultation     */
+/***********************/
+
+.consultation-card-wrapper {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .consultation-card-wrapper {
+	max-width: 80%;
+  }
+}
+
+.consultation-card-section .consultation-card {
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease-in-out;
+}
+
+.consultation-card-section .consultation-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.consultation-card-section .profile-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.consultation-card-section .contact-info li {
+  margin-bottom: 0.5rem;
+}
+
+.consultation-card-section .contact-info a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.consultation-card-section .contact-info a:hover {
+  text-decoration: underline;
+}
+
+.consultation-card-section .contact-info i {
+  margin-right: 0.5rem;
+}
+
+
+/***********************/
 /*     Information     */
 /***********************/
 .information .container-fluid .row div:first-child {
