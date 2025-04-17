@@ -27,12 +27,18 @@ Table Of Contents:
 	--secondary: #23194f;
 	/* --tertiary: #43bdfa; */
 	--tertiary: #ddfef8;
+	--most: #006eff;
 	
 	--gradient: linear-gradient(to right, #43bdfa, #23194f);
 	--gradient-light: linear-gradient(to right, #43bdfa, #23194f);	
 	
 	
 }
+
+html {
+	scroll-padding-top: 55px; /* adjust based on your header height */
+  }
+  
 
 h1,
 h2,
@@ -97,7 +103,7 @@ li {
 }
 
 .bottom {
-  	background-color: black;
+  	background-color: #181a3b;
 }
 
 /* Gradient Border And Background On Icons */
@@ -149,9 +155,15 @@ li {
 	padding-bottom: 0.25rem;
 }
 
-.navbar .logo-image img {
+.navbar .logo-image {
 	width: 108px;
 	height: 32px;
+}
+
+.logo-image img {
+	padding-right: 4rem;
+	width: 250px;
+	height: 80px;
 }
 
 .navbar .logo-text {
@@ -164,7 +176,7 @@ li {
 
 .offcanvas-collapse {
 	position: fixed;
-	top: 2.75rem; /* adjusts the height between the top of the page and the offcanvas menu */
+	top: 5.75rem; /* adjusts the height between the top of the page and the offcanvas menu */
 	bottom: 0;
 	left: 100%;
 	width: 100%;
@@ -172,8 +184,8 @@ li {
 	visibility: hidden;
 	padding-right: 1rem;
 	padding-left: 1rem;
-	background-color: var(--primary);
-	transition: transform 0.2s ease-in-out, visibility 0.2s ease-in-out;
+	background-color: var(--secondary);
+	transition: transform 0.4s ease-in-out, visibility 0.3s ease-in-out;
 }
 
 .offcanvas-collapse.open {
@@ -190,10 +202,10 @@ li {
 	border: none;
 	margin-top: 0.25rem;
 	margin-bottom: 0.25rem;
-	background-color: var(--primary);
+	background-color:var(--most);
 }
 
-.navbar .dropdown-item {
+.navbar .ropdown-item {
 	color: #eee;
 	font-weight: 500;
 	font-size: 0.875rem;
@@ -680,7 +692,7 @@ li {
 .ex-header {
 	padding-top: 8.5rem;
 	padding-bottom: 4rem;
-	background-color: var(--primary);
+	background-color:#181a3b;
 }
 
 .ex-header h1 {
@@ -772,9 +784,9 @@ li {
 	}
 
 	.navbar.top-nav-collapse {
-		padding-top: 0.5rem;
-		padding-bottom: 0.5rem;
-		background-color:#babefd ;
+		padding-top: 1rem;
+		padding-bottom: 1.4rem;
+		background-color:#181a3b ;
 		box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.025);
 	}
 
