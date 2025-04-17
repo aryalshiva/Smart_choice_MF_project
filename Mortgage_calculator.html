@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Calculator</title>
+
+    <!-- Original CSS/Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="./css/aos.min.css" rel="stylesheet">
+    <link href="./css/swiper.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link rel="icon" href="./assets/images/Smart Choice M&F LOGO.svg" type="image/svg">
+
+    <!-- Mortgage Style -->
+    <style>
+        main {
+            margin: 100px auto;
+            padding: 20px;
+            max-width: 900px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        main h2 {
+            margin-top: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        form label {
+            flex: 1 1 200px;
+        }
+
+        form input,
+        form select,
+        form button {
+            flex: 1 1 300px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        #calculated-values {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        #results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        #results-table th,
+        #results-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: right;
+        }
+
+        #results-table th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        #graph-type {
+            margin: 20px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #f1f1f1;
+            margin-top: 50px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark" aria-label="Main navigation">
+        <div class="container">
+            <div id="nav_logo-component"></div>
+            <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="page-navnbar-component"></div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="ex-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h1 class="headline text-center">Mortgage Calculator</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color:linear-gradient(to right, #43bdfa, #23194f);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        main {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2 {
+            margin: 0 0 20px;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        form label {
+            flex: 1 1 150px;
+        }
+
+        form input,
+        form select,
+        form button {
+            flex: 1 1 200px;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form button {
+            background-color:linear-gradient(to right, #43bdfa, #23194f);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: linear-gradient(to right, #36a2eb, #1e1e1e);
+        }
+
+        #calculated-values {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        #results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        #results-table th,
+        #results-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: right;
+        }
+
+        #results-table th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        #results-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        #results-table tr:hover {
+            background-color: #ddd;
+        }
+
+        #graph-type {
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <main>
+        <form id="mortgage-form">
+            <label for="total-mortgage">Total Mortgage Amount:</label>
+            <input type="number" id="total-mortgage" name="total-mortgage" value="300000" required>
+
+            <label for="interest-rate">Interest Rate (%):</label>
+            <input type="number" id="interest-rate" name="interest-rate" step="0.01" value="5" required>
+
+            <label for="deposit-percentage">Deposit Percentage:</label>
+            <input type="number" id="deposit-percentage" name="deposit-percentage" value="5" required>
+
+            <label for="loan-duration">Duration of Loan (years):</label>
+            <input type="number" id="loan-duration" name="loan-duration" value="30" required>
+
+            <label for="currency">Currency:</label>
+            <select id="currency" name="currency" required>
+                <option value="$">$ (USD)</option>
+                <option value="€">€ (EUR)</option>
+                <option value="£">£ (GBP)</option>
+                <option value="¥">¥ (JPY)</option>
+                <option value="$">$ (AUD)</option>
+                <option value="$">$ (CAD)</option>
+                <option value="CHF">CHF</option>
+                <option value="¥">¥ (CNY)</option>
+                <option value="kr">kr (SEK)</option>
+                <option value="$">$ (NZD)</option>
+                <option value="₹">₹ (INR)</option>
+                <option value="₽">₽ (RUB)</option>
+                <option value="R$">R$ (BRL)</option>
+                <option value="R">R (ZAR)</option>
+                <option value="$">$ (SGD)</option>
+                <option value="$">$ (HKD)</option>
+                <option value="₩">₩ (KRW)</option>
+                <option value="$">$ (MXN)</option>
+                <option value="Rp">Rp (IDR)</option>
+                <option value="₺">₺ (TRY)</option>
+                <option value="﷼">﷼ (SAR)</option>
+                <option value="د.إ">د.إ (AED)</option>
+                <option value="฿">฿ (THB)</option>
+                <option value="RM">RM (MYR)</option>
+                <option value="zł">zł (PLN)</option>
+                <option value="kr">kr (DKK)</option>
+                <option value="kr">kr (NOK)</option>
+                <option value="Ft">Ft (HUF)</option>
+                <option value="Kč">Kč (CZK)</option>
+                <option value="₪">₪ (ILS)</option>
+                <option value="₱">₱ (PHP)</option>
+            </select>
+
+            <label for="calculation-period">Calculation Period:</label>
+            <select id="calculation-period" name="calculation-period" required>
+                <option value="yearly">year by year</option>
+                <option value="monthly">month by month</option>
+            </select>
+
+            <button type="submit">Calculate</button>
+        </form>
+
+        <h2>Results</h2>
+
+        <div id="calculated-values">
+            <p>Total Repayment Amount: <span id="total-repayment-amount"></span></p>
+            <p>Interest Paid: <span id="interest-paid"></span></p>
+            <p>Monthly Repayment Amount: <span id="monthly-repayment-amount"></span></p>
+        </div>
+
+        <div>
+            <label for="graph-type">Graph Type:</label>
+            <select id="graph-type" name="graph-type">
+                <option value="repayment">Show Repayment Breakdown</option>
+                <option value="equity">Show Equity Breakdown</option>
+            </select>
+        </div>
+
+        <canvas id="mortgage-chart" width="400" height="200"></canvas>
+
+        <table id="results-table">
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Month</th>
+                    <th>Principal Paid</th>
+                    <th>Interest Paid</th>
+                    <th>Remaining Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Results will be inserted here -->
+            </tbody>
+        </table>
+    </main>
+
+
+    <script>
+        let mortgageChart;
+
+        document.getElementById('mortgage-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const totalMortgage = parseFloat(document.getElementById('total-mortgage').value);
+            const depositPercentage = parseFloat(document.getElementById('deposit-percentage').value);
+            const interestRate = parseFloat(document.getElementById('interest-rate').value) / 100 / 12;
+            const loanDuration = parseInt(document.getElementById('loan-duration').value) * 12;
+            const currency = document.getElementById('currency').value;
+            const calculationPeriod = document.getElementById('calculation-period').value;
+
+            const depositAmount = totalMortgage * (depositPercentage / 100);
+            const loanAmount = totalMortgage - depositAmount;
+
+            const monthlyPayment = (loanAmount * interestRate) / (1 - Math.pow(1 + interestRate, -loanDuration));
+
+            const resultsTableBody = document.querySelector('#results-table tbody');
+            resultsTableBody.innerHTML = '';
+
+            let remainingBalance = loanAmount;
+            let totalInterestPaid = 0;
+
+            const principalData = [];
+            const interestData = [];
+            const builtUpEquityData = [];
+            const remainingBalanceData = [];
+            const labels = [];
+
+            if (calculationPeriod === 'monthly') {
+                for (let i = 0; i < loanDuration; i++) {
+                    const interestPaid = remainingBalance * interestRate;
+                    const principalPaid = monthlyPayment - interestPaid;
+                    remainingBalance -= principalPaid;
+                    totalInterestPaid += interestPaid;
+
+                    principalData.push(principalPaid);
+                    interestData.push(interestPaid);
+                    builtUpEquityData.push(loanAmount - remainingBalance);
+                    remainingBalanceData.push(remainingBalance);
+                    labels.push(`Month ${i + 1}`);
+
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${Math.floor(i / 12) + 1}</td>
+                        <td>${(i % 12) + 1}</td>
+                        <td>${currency}${principalPaid.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                        <td>${currency}${interestPaid.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                        <td>${currency}${remainingBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                    `;
+                    resultsTableBody.appendChild(row);
+                }
+            } else if (calculationPeriod === 'yearly') {
+                for (let i = 0; i < loanDuration; i += 12) {
+                    let yearlyPrincipalPaid = 0;
+                    let yearlyInterestPaid = 0;
+
+                    for (let j = 0; j < 12; j++) {
+                        const interestPaid = remainingBalance * interestRate;
+                        const principalPaid = monthlyPayment - interestPaid;
+                        remainingBalance -= principalPaid;
+                        totalInterestPaid += interestPaid;
+                        yearlyPrincipalPaid += principalPaid;
+                        yearlyInterestPaid += interestPaid;
+                    }
+
+                    principalData.push(yearlyPrincipalPaid);
+                    interestData.push(yearlyInterestPaid);
+                    builtUpEquityData.push(loanAmount - remainingBalance);
+                    remainingBalanceData.push(remainingBalance);
+                    labels.push(`Year ${Math.floor(i / 12) + 1}`);
+
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${Math.floor(i / 12) + 1}</td>
+                        <td>-</td>
+                        <td>${currency}${yearlyPrincipalPaid.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                        <td>${currency}${yearlyInterestPaid.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                        <td>${currency}${remainingBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                    `;
+                    resultsTableBody.appendChild(row);
+                }
+            }
+
+            document.getElementById('total-repayment-amount').textContent = `${currency}${(monthlyPayment * loanDuration).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            document.getElementById('interest-paid').textContent = `${currency}${totalInterestPaid.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            document.getElementById('monthly-repayment-amount').textContent = `${currency}${monthlyPayment.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+            const ctx = document.getElementById('mortgage-chart').getContext('2d');
+
+            if (mortgageChart) {
+                mortgageChart.destroy();
+            }
+
+            const graphType = document.getElementById('graph-type').value;
+            const chartOptions = {
+                scales: {
+                    y: {
+                        min: 0,
+                        ticks: {
+                            callback: function (value, index, values) {
+                                return `${currency}${value.toLocaleString({}, { maximumFractionDigits: 0 })}`;
+                            },
+                            major: {
+                                enabled: true
+                            },
+                            maxtickslimit: 20
+                        }
+                    },
+                    x: {
+                        min: 0,
+                        ticks: {
+                            major: {
+                                enabled: true
+                            },
+                            maxtickslimit: 20
+                        }
+                    }
+                }
+            }
+
+            if (graphType === 'repayment') {
+                mortgageChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Principal Paid',
+                            data: principalData,
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1,
+                            fill: true
+                        },
+                        {
+                            label: 'Interest Paid',
+                            data: interestData,
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1,
+                            fill: true
+                        }
+                        ]
+                    },
+                    options: chartOptions
+                });
+            } else if (graphType === 'equity') {
+                mortgageChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Built-Up Equity',
+                            data: builtUpEquityData,
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1,
+                            fill: true
+                        },
+                        {
+                            label: 'Remaining Balance',
+                            data: remainingBalanceData,
+                            backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                            borderColor: 'rgba(153, 102, 255, 1)',
+                            borderWidth: 1,
+                            fill: true
+                        }
+                        ]
+                    },
+                    options: chartOptions
+                });
+            }
+        });
+    </script>
+
+
+    <!-- Footer -->
+    <div id="page-footer-component"></div>
+
+    <!-- Back To Top Button -->
+    <button onclick="topFunction()" id="myBtn">
+        <img src="assets/images/up-arrow.png" alt="Back to Top">
+    </button>
+
+    <!-- Scripts -->
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/purecounter.min.js"></script>
+    <script src="./js/swiper.min.js"></script>
+    <script src="./js/aos.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/components.js"></script>
+
+    <!-- Your mortgage JS script (you should link or add here) -->
+    <script src="./js/mortgage.js"></script>
+
+</body>
+
+</html>

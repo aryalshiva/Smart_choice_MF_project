@@ -268,7 +268,7 @@ li {
 /*     Home     */
 /****************/
 .home {
-	background-image: url(../assets/images/home.jpg);
+	background-image: url(../assets/images/hello.png);
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -517,8 +517,8 @@ li {
 /*     Testimonials     */
 /************************/
 .slider-1 {
-	padding-top: 8.25rem;
-	padding-bottom: 8.5rem;
+	padding-top: 1.25rem;
+	padding-bottom: 1.5rem;
 }
 
 .slider-1 .section-title {
@@ -774,7 +774,7 @@ li {
 	.navbar.top-nav-collapse {
 		padding-top: 0.5rem;
 		padding-bottom: 0.5rem;
-		background-color: var(--primary);
+		background-color:#babefd ;
 		box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.025);
 	}
 
