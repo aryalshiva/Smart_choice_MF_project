@@ -302,22 +302,30 @@ li {
 
 #banking-partners {
 	color: #0f0f11;
-	background-color: var(--primary);
-	padding: 0% 0% 2% 0%;
+	background-color:transparent;
 
-}
-
-.banking-partner-card{
-	background-color: var(--primary-light);
-	padding: 2% 0%;
-	border: 4px solid var(--primary-light);
-	border-radius: 30px;
-	box-shadow: 0px 0px 10px 0px var(--primary-light);
 }
 
 .img-fluid {
     max-width: 100%;
     height: auto;
+}
+
+.partner-image {
+    width: 100%;
+    height: 120px; /* adjust height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.partner-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
 
@@ -528,13 +536,14 @@ li {
 /************************/
 /*     Testimonials     */
 /************************/
+
 .slider-1 {
 	padding-top: 1.25rem;
 	padding-bottom: 1.5rem;
 }
 
 .slider-1 .section-title {
-  	text-align: center;
+	text-align: center;
 }
 
 .slider-1 .h2-heading {
@@ -543,14 +552,16 @@ li {
 }
 
 .testimonial-card {
-	border: 10px solid;
+	border: 3px solid;
 	border-image-slice: 1;
-	border-width: 3px;
 	border-image-source: var(--gradient);
+	border-radius: 10px;
+	background-color: #fff;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .slider-1 .slider-container {
-  	position: relative;
+	position: relative;
 }
 
 .slider-1 .swiper-container {
@@ -560,7 +571,7 @@ li {
 
 .slider-1 .swiper-button-prev,
 .slider-1 .swiper-button-next {
-  	color: var(--primary);
+	color: var(--primary);
 }
 
 .slider-1 .swiper-button-prev:focus,
@@ -597,23 +608,49 @@ li {
 }
 
 .slider-1 .card-body {
-  	padding: 0;
+	padding: 0;
 }
 
 .slider-1 .testimonial-text {
-  	margin-bottom: 0.75rem;
+	margin-bottom: 0.75rem;
+	font-size: 1rem;
+	color: #555;
 }
 
 .slider-1 .testimonial-author {
 	margin-bottom: 0;
 	color: #252c38;
+	font-weight: 600;
+	font-size: 1.1rem;
 }
 
-.slider-1 .avatar {
-	width: 70px;
-	height: 70px;
+/* ⭐ Review Stars */
+.slider-1 .review-stars {
+	color: #fbbc04;
+	font-size: 1.5rem;
+	margin-bottom: 10px;
+}
+
+/* Profile + Name container */
+.slider-1 .testimonial-header {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.slider-1 .testimonial-header img {
+	width: 60px;
+	height: 60px;
 	border-radius: 50%;
 }
+
+.slider-1 .testimonial-header h6 {
+	margin-left: 12px;
+	margin-bottom: 0;
+	font-size: 1rem;
+	color: #333;
+}
+
 
 /* Dropdown Menu */
 .navbar .dropdown .dropdown-menu {
