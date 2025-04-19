@@ -1,55 +1,78 @@
-<!-- Contact -->
-<section class="contact d-flex align-items-center py-5" id="contact">
-    <div class="container-fluid text-dark">
-        <h2 class="headline" style="text-align:center;padding-bottom:1rem;"><span class="home_text"> Contact</span> Us</h2>
-        <div class="row">
-            <!-- Google Map (now on the left) -->
-            <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" style="padding-left: 6rem;">
-                <div style="width: 100%;"> <!-- Google Map -->
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3065.339255418378!2d145.0302012!3d-37.6183187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad64c1707d23765%3A0x70a6c5f8c70b45f9!2s222%20Epping%20Rd%2C%20Wollert%20VIC%203750%2C%20Australia!5e0!3m2!1sen!2sau!4v1712900558481!5m2!1sen!2sau"
-                        width="100%"
-                        height="460"
-                        style="border:1;"
-                        allowfullscreen=""
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-            </div> <!-- end of col -->
+<!-- Contact Section -->
+    <!-- Contact -->
+    <section class="contactlocation d-flex align-items-center" style="padding-bottom:0px;padding-top:5rem" id="contactlocation">
+        <div class="container text-dark">
+            <h2 class="headline text-center mb-5">
+                <span class="home_text">Contact</span> Us
+            </h2>
 
-            <!-- Contact Form (now on the right) -->
-            <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end align-items-center px-lg-5" data-aos="fade-down">
-                <div style="width:90%">
-                    <div class="text-center text-lg-start py-4 pt-lg-0">
-                        <h2 class="py-2">Send your query</h2>
-                        <p class="para-light">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos dicta mollitia totam explicabo obcaecati quia laudantium repudiandae.</p>
+            <!-- Wrapper Row for Left and Right -->
+            <div class="row justify-content-center align-items-start mb-4" data-aos="fade-up">
+                
+                <!-- Left: Image -->
+                <div class="col-md-6 text-center mb-4 mb-md-0">
+                    <img src="/assets/images/SmartChoiceMapLocation.png" alt="Australia 3D Map"
+                        style="max-width: 100%; height: auto; object-fit: contain;">
+                </div>
+
+                <!-- Right: iFrame + Submit Button -->
+                <div class="col-md-6">
+                    <!-- iFrame Section -->
+                    <div class="text-center mb-4">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3065.339255418378!2d145.0302012!3d-37.6183187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad64c1707d23765%3A0x70a6c5f8c70b45f9!2s222%20Epping%20Rd%2C%20Wollert%20VIC%203750%2C%20Australia!5e0!3m2!1sen!2sau!4v1712900558481!5m2!1sen!2sau"
+                            width="100%"
+                            height="300"
+                            style="border:2px solid #ccc; border-radius: 30px;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
                     </div>
-                    <div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group py-2">
-                                    <input type="text" class="form-control form-control-input" placeholder="Enter name">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group py-2">
-                                    <input type="email" class="form-control form-control-input" placeholder="Enter phone number">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group py-1">
-                            <input type="email" class="form-control form-control-input" placeholder="Enter email">
-                        </div>
-                        <div class="form-group py-2">
-                            <textarea class="form-control form-control-input" rows="6" placeholder="Message"></textarea>
-                        </div>
+
+                    <!-- Submit Button Section -->
+                    <div class="text-center">
+                        <a class="btn form-control-submit-button text-black-50 w-50" href="#your-link">Booked Now</a>
                     </div>
-                    <div class="my-3">
-                        <a class="btn form-control-submit-button text-black-50" href="#your-link">Submit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Location -->
+    <section class="location" style="padding-top:0px;padding-bottom:3rem">
+        <div class="container" data-aos="zoom-in">
+            <div class="row">
+                <div class="col-lg-3 d-flex align-items-center">
+                    <div class="p-2"><i class="far fa-map fa-3x"></i></div>
+                    <div class="ms-2">
+                        <h6>ADDRESS</h6>
+                        <p> <a href="https://www.google.com/maps?q=222+Epping+Road+Wollert,VIC+3750" target="_blank" class="text-dark">222 Epping Road Wollert, VIC 3750</a></p>
                     </div>
-                </div> <!-- end of div -->
-            </div> <!-- end of col -->
-        </div> <!-- end of row -->
-    </div> <!-- end of container -->
-</section> <!-- end of contact -->
+                </div>
+                <div class="col-lg-3 d-flex align-items-center" >
+                    <div class="p-2"><i class="fas fa-mobile-alt fa-3x"></i></div>
+                    <div class="ms-2">
+                        <h6>CALL FOR QUERY</h6>
+                        <p><a href="tel:0410242700" class="text-dark">0410242700</a></p>
+                    </div>
+                </div>
+               <div class="col-lg-3 d-flex align-items-center" >
+                    <div class="p-2"><i class="far fa-clock fa-3x"></i></div>
+                    <div class="ms-2">
+                        <h6>OPENING HOURS</h6>
+                        <p>09:00 AM - 18:00 PM</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 d-flex align-items-center" >
+                    <div class="p-2"><i class="far fa-envelope fa-3x"></i></div>
+                    <div class="ms-2">
+                        <h6>SEND US MESSAGE</h6>
+                        <p><a href="mailto:smartchoicemortgage@outlook.com" class="text-dark">smartchoicemortgage@outlook.com</a></p>
+                    </div>
+                </div>
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </section> <!-- end of location -->
