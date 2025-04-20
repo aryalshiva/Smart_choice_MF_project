@@ -146,7 +146,7 @@ li {
 	font-weight: 500;
 	font-size: 1.5rem;
 	line-height: 1.5rem;
-	background-color: var(--primary);
+	background-color: var(--secondary);
 	box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.025);
 }
 
@@ -343,6 +343,9 @@ li {
 @media (min-width: 768px) {
   .consultation-card-wrapper {
 	max-width: 80%;
+  }
+  .navbar{
+	background-color: var(--secondary);
   }
 }
 
@@ -817,12 +820,12 @@ li {
 		box-shadow: none;
 		transition: all 0.2s;
 		padding-top: 1.75rem;
-		background-color: transparent;
+		background-color: transparent ;
 	}
 
 	.navbar.top-nav-collapse {
-		padding-top: 1rem;
-		padding-bottom: 1.4rem;
+		padding-top: 0.5rem;
+		padding-bottom: 0.5rem;
 		background-color:#181a3b ;
 		box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.025);
 	}
@@ -898,4 +901,8 @@ li {
 		width: 22px;
 		background-size: 22px 34px;
 	}
+
+	.navbar {
+		background-color: var(--secondary);
+	  }
 }
