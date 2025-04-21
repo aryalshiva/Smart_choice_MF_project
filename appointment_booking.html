@@ -68,7 +68,7 @@
                     </div>
                 </div>
 
-                <!-- Appointment Form -->
+                <!-- Appointment Form 
                 <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end align-items-center px-lg-5" data-aos="fade-down">
                     <div style="width: 90%;">
                         <div class="text-center text-lg-start py-4 pt-lg-0">
@@ -118,6 +118,48 @@
             </div>
         </div>
     </section>
+    -->
+    <form id="appointment-form">
+    <!-- Step 1 -->
+    <div class="form-step step-1 active">
+        <h5>Step 1: Contact Information</h5>
+        <input type="text" name="from_name" placeholder="Full Name" required>
+        <input type="email" name="from_email" placeholder="Email Address" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <button type="button" class="next-btn">Next</button>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="form-step step-2">
+        <h5>Step 2: Appointment Type & Address</h5>
+        <select name="appointment_type" required>
+            <option selected disabled>Choose Appointment Type</option>
+            <option>Consultation</option>
+            <option>Follow-up</option>
+            <option>Support Request</option>
+            <option>Other</option>
+        </select>
+        <textarea name="notes" placeholder="Your Address or Notes" rows="4"></textarea>
+        <button type="button" class="prev-btn">Back</button>
+        <button type="button" class="next-btn">Next</button>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="form-step step-3">
+        <h5>Step 3: Choose Date and Time</h5>
+        <input type="date" name="date" required>
+        <input type="time" name="time" required>
+        <button type="button" class="prev-btn">Back</button>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+<!-- Success Message (Optional) -->
+<div id="success-message" style="display:none;">
+    <h4>Thank you! Your appointment has been sent.</h4>
+    <h4>you will receive a confirmation email shortly.</h4>
+</div>
+
 
     <!-- Footer -->
     <div id="page-footer-component"></div>

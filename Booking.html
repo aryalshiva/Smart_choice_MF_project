@@ -30,8 +30,13 @@
     <link rel="icon" href="./assets/images/Smart Choice M&F LOGO.svg" type="image/svg">
 
     <style>
-        .step { display: none; }
-        .step.active { display: block; }
+    .form-step {
+        display: none;
+    }
+    .form-step.active {
+        display: block;
+    }
+
     </style>
 </head>
 <body>
@@ -55,9 +60,9 @@
                 <h1> Book Appointment</h1>
                 <p class="lead" style="color:white;">Follow these simple steps to book your appointment:</p>
                 <ul style="color:white;">
-                    <li>Step 1: Provide your basic details like name, email, and phone number.</li>
-                    <li>Step 2: Enter your address and select your preferred price range.</li>
-                    <li>Step 3: Choose a convenient date for your appointment.</li>
+                    <li>Step 1: Fill in your contact details including your name, email, and phone number.</li>
+                    <li>Step 2: Specify your location and select the type of appointment you need.</li>
+                    <li>Step 3: Pick a suitable date for your visit and provide any additional notes.</li>
                 </ul>
                 <p class="lead" style="color:white;">Let us help you move into your dream home. Schedule your personalized consultation today.</p>
             </div>
@@ -70,52 +75,68 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-10 offset-xl-1">
-                <form id="appointmentForm">
-                    <div class="step active" id="step1">
-                        <div class="mb-3">
-                            <label>Name</label>
-                            <input type="text" class="form-control" id="name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label>Email</label>
-                            <input type="email" class="form-control" id="email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label>Phone</label>
-                            <input type="tel" class="form-control" id="phone" required pattern="[0-9]{10}">
-                        </div>
-                        <button type="button" class="btn btn btn-secondary" onclick="nextStep()">Next</button>
+                <form id="appointment-form">
+                    <!-- Step 1 -->
+                    <div class="form-step step-1 active">
+                        <h5 class="mb-3"> Contact Information</h5>
+                        <input type="text" name="from_name" class="form-control mb-3" placeholder="Full Name" required>
+                        <input type="email" name="from_email" class="form-control mb-3" placeholder="Email Address" required>
+                        <input type="tel" name="phone" class="form-control mb-3" placeholder="Phone Number" required pattern="[0-9]{1,15}" title="Phone number must be up to 15 digits.">
+                        <br>
+                        <button type="button" class="btn btn-secondary next-btn">Next</button>
                     </div>
 
-                    <div class="step" id="step2">
-                        <div class="mb-3">
-                            <label>Address</label>
-                            <input type="text" class="form-control" id="address" required>
-                        </div>
-                        <div class="mb-3">
-                            <label>Price Range</label>
-                            <select class="form-control" id="price" required>
-                                <option value="">Select</option>
-                                <option value="$100k - $200k">$100k - $200k</option>
-                                <option value="$200k - $500k">$200k - $500k</option>
-                                <option value="Above $500k">Above $500k</option>
-                            </select>
-                        </div>
-                        <button type="button" class="btn btn-secondary" onclick="prevStep()">Previous</button>
-                        <button type="button" class="btn btn-secondary" onclick="nextStep()">Next</button>
+                    <!-- Step 2 -->
+                    <div class="form-step step-2">
+
+                        <h5 class="mb-3"> Appointment Type & Address</h5>
+
+                        <input type="text" name="location" class="form-control mb-3" placeholder="Your Location" required>
+                    
+                        <select name="appointment_type" class="form-control mb-3" required>
+                            <option selected disabled>Choose Appointment Type</option>
+                            <option>Consultation</option>
+                            <option>Follow-up</option>
+                            <option>Support Request</option>
+                            <option>Other</option>
+                        </select>
+                    
+                        <textarea name="notes" class="form-control mb-3" placeholder="Notes (purpose of visit)" rows="4" required></textarea>
+                        <br>
+                        <button type="button" class="btn btn-secondary prev-btn" style="padding-right: 1rem;">Back</button>
+                        <button type="button" class="btn btn-secondary next-btn">Next</button>
                     </div>
 
-                    <div class="step" id="step3">
-                        <div class="mb-3">
-                            <label>Select Date</label>
-                            <input type="date" class="form-control" id="date" required>
+                    <!-- Step 3 -->
+                    <div class="form-step step-3">
+
+                        <h5 class="mb-3"> Choose Date of visit </h5>
+                        <div style="max-width: 50%;" onclick="document.getElementById('appointment-date').showPicker()">
+                            <input 
+                                type="date" 
+                                id="appointment-date" 
+                                name="date" 
+                                class="form-control mb-3" 
+                                required 
+                                style="cursor: pointer; background-color: #fff;" 
+                            >
                         </div>
-                        <button type="button" class="btn btn-secondary" onclick="prevStep()">Previous</button>
-                        <button type="submit" class="btn btn-success" style="color:black;">Book Appointment</button>
+                        <input type="hidden" name="submission_time" id="submission-time">
+                        <button type="button" class="btn btn-secondary prev-btn" style="padding-right: 1rem;">Back</button>
+                        <button type="submit" class="btn btn-success" style="color: black;">Book Appointment</button>
                     </div>
                 </form>
 
-                <div id="confirmation" class="mt-4 text-success fw-bold"></div>
+                <!-- Success Message -->
+                <div id="success-message" class="text-success fw-bold mt-4" style="display:none;">
+                <br>
+                    <h4>Success! Your appointment has been booked.</h4> 
+
+                    <h4>Please check your email for confirmation.</h4> 
+                    
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='index.html'">Go to Homepage</button> 
+
+                </div>
             </div>
         </div>
     </div>
@@ -137,71 +158,10 @@
 <script src="./js/script.js"></script>
 <script src="./js/components.js"></script>
 
-<script>
-    const steps = document.querySelectorAll('.step');
-    let currentStep = 0;
+<!-- EmailJS Script imp -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script src="./js/emailjs.min.js"></script>
 
-    function showStep(index) {
-        steps.forEach((step, i) => step.classList.toggle('active', i === index));
-    }
 
-    function nextStep() {
-        if (validateStep(currentStep)) {
-            currentStep++;
-            showStep(currentStep);
-        }
-    }
-
-    function prevStep() {
-        currentStep--;
-        showStep(currentStep);
-    }
-
-    function validateStep(step) {
-        const inputs = steps[step].querySelectorAll('input, select');
-        for (let input of inputs) {
-            if (!input.checkValidity()) {
-                input.reportValidity();
-                return false;
-            }
-        }
-        return true;
-    }
-
-    const dateInput = document.getElementById('date');
-    const today = new Date();
-    const maxDate = new Date();
-    maxDate.setDate(today.getDate() + 30);
-    dateInput.min = today.toISOString().split('T')[0];
-    dateInput.max = maxDate.toISOString().split('T')[0];
-
-    document.getElementById('appointmentForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        if (!validateStep(currentStep)) return;
-
-        const data = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value,
-            address: document.getElementById('address').value,
-            price: document.getElementById('price').value,
-            date: document.getElementById('date').value,
-        };
-
-        fetch('/save_appointment', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data),
-        }).then(res => {
-            if (res.ok) {
-                document.getElementById('appointmentForm').style.display = 'none';
-                document.getElementById('confirmation').textContent = "Appointment booked successfully!";
-            } else {
-                alert("Failed to save appointment");
-            }
-        }).catch(() => alert("Error connecting to server"));
-    });
-</script>
 </body>
 </html>
