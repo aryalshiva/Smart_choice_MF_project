@@ -63,6 +63,8 @@
 
     <div id="services-component"></div>
 
+    <div id="popup-component"></div>
+
     <div id="work-component"></div>
 
     <div id="card-component"></div>
@@ -171,7 +173,7 @@
     <div id="question-answer-component"></div>
 
 
-   <!--  <div id="about-component"></div> -->
+   <div id="about-component"></div> 
 
     <div id="useful-tools-component"></div>
 
@@ -309,6 +311,106 @@
     <script src="./js/script.js"></script>  <!-- Custom scripts -->
     
     <script src="./js/components.js"></script> <!-- Custom components scripts -->
+
+
+
+
+
+
+
+
+
+
+ <!-- Popup Card -->
+<div id="popupCard" style="
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-100%, -50%) scale(1.2);
+  opacity: 0;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.15);
+  max-width: 480px;
+  width: 95%;
+  z-index: 1000;
+  padding: 30px 24px;
+  pointer-events: none;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+">
+
+  <!-- Close Button (red) -->
+  <button onclick="closePopup()" style="
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background-color: #ff4d4f;
+    border: none;
+    color: white;
+    font-size: 14px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 1;
+  ">×</button>
+
+  <!-- Image -->
+  <img src="./assets/images/home3.jpg" alt="Popup" style="width: 100%; border-radius: 14px; max-height: 220px; object-fit: cover;">
+
+  <!-- Content -->
+  <div style="text-align: center; margin-top: 22px;">
+    <h4 style="color: #23194f; font-size: 1.5rem;">Let’s Talk Finance</h4>
+    <p style="color: #555; font-size: 15px;">
+      Book a free consultation with <strong style="color:#7F51E8;">Smart Choice Mortgage & Finance</strong> to explore your best loan plan options.
+    </p>
+    
+    <!-- Booking Button with Home Icon -->
+    <a href="Booking.html" class="btn" style="
+      background-color: #7F51E8;
+      color: white;
+      padding: 11px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 14px;
+      font-weight: 500;
+      font-size: 16px;
+    ">🏠 Free Booking</a>
+  </div>
+</div>
+
+<!-- Script -->
+<script>
+  let shownPopup = false;
+  const popup = document.getElementById('popupCard');
+
+  function showPopup() {
+    popup.style.opacity = '1';
+    popup.style.pointerEvents = 'auto';
+    popup.style.transform = 'translate(-50%, -50%) scale(1.2)';
+  }
+
+  function closePopup() {
+    popup.style.opacity = '0';
+    popup.style.pointerEvents = 'none';
+    popup.style.transform = 'translate(-100%, -50%) scale(1.2)';
+  }
+
+  window.addEventListener('scroll', function () {
+    if (shownPopup) return;
+
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+    if (scrollTop > scrollHeight / 2) {
+      showPopup();
+      shownPopup = true;
+    }
+  });
+</script>
+
 
 </body>
 </html>
