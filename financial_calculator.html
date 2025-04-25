@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Calculator</title>
+
+    <!-- Original CSS/Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="./css/aos.min.css" rel="stylesheet">
+    <link href="./css/swiper.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link rel="icon" href="./assets/images/Smart Choice M&F LOGO.svg" type="image/svg">
+
+    <style>
+            :root {
+            --primary-color: #23194f;
+            --secondary-color: #43bdfa;
+            --background-color: #f4f4f9;
+            --card-color: #ffffff;
+            --text-color: #333333;
+            --border-color: #dddddd;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .calculator-container {
+            max-width: 900px;
+            margin: 100px auto;
+            padding: 30px;
+            background-color: var(--card-color);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+            min-width: 100px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .tab.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .tab:hover {
+            background-color: rgba(67, 189, 250, 0.1);
+        }
+
+        .calculator {
+            display: none;
+        }
+
+        .calculator.active {
+            display: block;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            outline: none;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            border-color: var(--secondary-color);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            font-size: 1rem;
+            background-color: #23194f; 
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #43bdfa;
+            transition: 0.3s;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: var(--text-color);
+            text-align: center;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            line-height: 1.6;
+            border: 1px solid var(--border-color);
+        }
+
+        .chart-container {
+            margin-top: 30px;
+            height: 300px;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 20px;
+                margin: 50px auto;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .tab {
+                padding: 10px;
+                font-size: 0.8rem;
+            }
+        }
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark" aria-label="Main navigation">
+        <div class="container">
+            <div id="nav_logo-component"></div>
+            <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+   <div class="d-flex">
+            <div id="page-navbar-component" class="me-2"></div>
+
+            <div style align="right">
+                <a class=" btn btn-primary text-white px-4 py-2" style="padding-left:2rem" href="Booking.html">
+                    <i class="fas fa-calendar-check me-2"></i> Free Booking
+                </a>
+            </div>
+        </div> <!-- end of container -->
+        </div>
+    </nav>
+
+        <!-- Header -->
+    <header class="ex-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h1 class="headline text-center">Financial Calculator</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+    <div class="calculator-container">
+        <div class="tabs">
+            <div class="tab active" data-target="#future-value">Future Value</div>
+            <div class="tab" data-target="#loan-amortization">Loan</div>
+            <div class="tab" data-target="#savings-plan">Savings</div>
+            <div class="tab" data-target="#mortgage-calculator">Mortgage</div>
+            <div class="tab" data-target="#investment-return">Investment</div>
+        </div>
+
+        <!-- Future Value Calculator -->
+        <div id="future-value" class="calculator active">
+            <div class="input-group">
+                <label for="principal">Principal Amount ($)</label>
+                <input type="number" id="principal" placeholder="10000">
+            </div>
+            <div class="input-group">
+                <label for="rate">Annual Interest Rate (%)</label>
+                <input type="number" id="rate" placeholder="5">
+            </div>
+            <div class="input-group">
+                <label for="time">Time (Years)</label>
+                <input type="number" id="time" placeholder="10">
+            </div>
+            <div class="input-group">
+                <label for="compounds">Compounds per Year</label>
+                <input type="number" id="compounds" placeholder="12" value="12">
+            </div>
+            <button id="calculate-future-value">Calculate Future Value</button>
+            <div class="result" id="result-future-value">Future Value: $0</div>
+        </div>
+
+        <!-- Loan Calculator -->
+        <div id="loan-amortization" class="calculator">
+            <div class="input-group">
+                <label for="loan-principal">Loan Amount ($)</label>
+                <input type="number" id="loan-principal" placeholder="200000">
+            </div>
+            <div class="input-group">
+                <label for="loan-rate">Annual Interest Rate (%)</label>
+                <input type="number" id="loan-rate" placeholder="4.5">
+            </div>
+            <div class="input-group">
+                <label for="loan-time">Time (Years)</label>
+                <input type="number" id="loan-time" placeholder="30">
+            </div>
+            <button id="calculate-loan">Calculate Loan Payment</button>
+            <div class="result" id="result-loan-payment">Monthly EMI: $0<br>Total Amount Payable: $0<br>Interest Amount: $0</div>
+        </div>
+
+        <!-- Savings Calculator -->
+        <div id="savings-plan" class="calculator">
+            <div class="input-group">
+                <label for="savings-principal">Initial Savings ($)</label>
+                <input type="number" id="savings-principal" placeholder="5000">
+            </div>
+            <div class="input-group">
+                <label for="savings-rate">Annual Interest Rate (%)</label>
+                <input type="number" id="savings-rate" placeholder="3">
+            </div>
+            <div class="input-group">
+                <label for="savings-time">Time (Years)</label>
+                <input type="number" id="savings-time" placeholder="5">
+            </div>
+            <div class="input-group">
+                <label for="savings-contribution">Annual Contribution ($)</label>
+                <input type="number" id="savings-contribution" placeholder="1000">
+            </div>
+            <button id="calculate-savings">Calculate Savings</button>
+            <div class="result" id="result-savings">Total Savings: $0<br>Interest Earned: $0</div>
+        </div>
+
+        <!-- Mortgage Calculator -->
+        <div id="mortgage-calculator" class="calculator">
+            <div class="input-group">
+                <label for="mortgage-amount">Mortgage Amount ($)</label>
+                <input type="number" id="mortgage-amount" placeholder="300000">
+            </div>
+            <div class="input-group">
+                <label for="down-payment">Down Payment ($)</label>
+                <input type="number" id="down-payment" placeholder="60000">
+            </div>
+            <div class="input-group">
+                <label for="mortgage-rate">Annual Interest Rate (%)</label>
+                <input type="number" id="mortgage-rate" placeholder="3.5">
+            </div>
+            <div class="input-group">
+                <label for="mortgage-time">Time (Years)</label>
+                <input type="number" id="mortgage-time" placeholder="30">
+            </div>
+            <button id="calculate-mortgage">Calculate Mortgage Payment</button>
+            <div class="result" id="result-mortgage">
+                Monthly Payment: $0<br>
+                Total Mortgage Payable: $0<br>
+                Mortgage Interest: $0
+            </div>
+        </div>
+
+        <!-- Investment Calculator -->
+        <div id="investment-return" class="calculator">
+            <div class="input-group">
+                <label for="investment-principal">Investment Amount ($)</label>
+                <input type="number" id="investment-principal" placeholder="10000">
+            </div>
+            <div class="input-group">
+                <label for="investment-rate">Annual Return Rate (%)</label>
+                <input type="number" id="investment-rate" placeholder="7">
+            </div>
+            <div class="input-group">
+                <label for="investment-time">Time (Years)</label>
+                <input type="number" id="investment-time" placeholder="10">
+            </div>
+            <button id="calculate-investment">Calculate Investment Return</button>
+            <div class="result" id="result-investment">Total Return: $0<br>Profit Amount: $0</div>
+        </div>
+        
+        <div class="chart-container">
+            <canvas id="financialChart"></canvas>
+        </div>
+    </div>
+    <script src="./js/allcalculator.js"></script>
+
+
+
+    <!-- Footer -->
+    <div id="page-footer-component"></div>
+
+    <!-- Back To Top Button -->
+    <button onclick="topFunction()" id="myBtn">
+        <img src="assets/images/up-arrow.png" alt="Back to Top">
+    </button>
+
+    <!-- Scripts -->
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/purecounter.min.js"></script>
+    <script src="./js/swiper.min.js"></script>
+    <script src="./js/aos.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/components.js"></script>
+
+    <!-- Your mortgage JS script (you should link or add here) -->
+    <script src="./js/mortgage.js"></script>
+
+</body>
+
+</html>

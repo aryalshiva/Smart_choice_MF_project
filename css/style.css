@@ -76,11 +76,15 @@ li {
 
 /* Section Background */
 .home,
-.about,
 .services,
 .plans,
 .contact {
 	height: 110vh;
+	position: relative;
+}
+
+.about {
+	height: 90vh;
 	position: relative;
 }
 
@@ -114,7 +118,7 @@ li {
 .home_text,
 .home .fas,
 .plans .far,
-.information .fas,
+.fas,
 .work .fas,
 .services .fas,
 .location .far,
@@ -132,17 +136,11 @@ li {
 	-webkit-text-fill-color: transparent;
 }
 
-.navbar-nav a:hover,
-.footer a:hover,
-.footer .fab:hover {
-	cursor: pointer;
-	background: var(--gradient);
-	background-clip: text;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+
+.information {
+	background-color: whitesmoke;
+
 }
-
-
 /**********************/
 /*     Navigation     */
 /**********************/
@@ -394,18 +392,11 @@ li {
 /*     Information     */
 /***********************/
 .information .container-fluid .row div:first-child {
-	background-color: var(--primary);
+	background-color: whitesmoke;
 	padding-bottom: 1rem;
 	color:#0f0f11;
 	
 	
-}
-
-.information .container-fluid .row div:last-child {
-
-	background-color:whitesmoke;
-	padding-bottom: 1rem;
-	color:#0f0f11;
 }
 
 .information .container-fluid .row div:nth-child(2) {
@@ -416,6 +407,14 @@ li {
 
 	
 }
+
+.information .container-fluid .row div:last-child {
+
+	background-color:whitesmoke;
+	padding-bottom: 1rem;
+	color:#0f0f11;
+}
+
 
 .read-more {
 	color: #7F51E8ff;
