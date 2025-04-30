@@ -282,9 +282,9 @@ li {
 /*     Home     */
 /****************/
 .home {
-	background-image: url(../assets/images/homehome.jpg);
+	background-image: url(../assets/images/SmartChoiceMortgageandFinance_background_image.png);
 	background-size: cover;
-	background-position: center;
+	background-position: center bottom;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
