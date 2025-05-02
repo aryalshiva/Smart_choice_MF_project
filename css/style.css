@@ -294,6 +294,26 @@ li {
 	background-attachment: fixed;
 }
 
+@media only screen and (max-width: 540px) {
+	.home {
+		background-image: url(../assets/images/SmartChoiceMortgageandFinance_background_image.png);
+		background-size: cover;
+		background-position: center bottom;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+	}
+}
+
+@media only screen and (max-width: 360px) {
+	.home {
+		background-image: url(../assets/images/SmartChoiceMortgageandFinance_background_image.png);
+		background-size: cover;
+		background-position: center bottom;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+	}
+}
+
 .para {
   	width: 50%;
 }
