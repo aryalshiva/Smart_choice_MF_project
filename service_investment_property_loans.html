@@ -30,23 +30,55 @@
     <link rel="icon" href="./assets/images/Smart Choice M&F LOGO.svg" type="image/svg" />
 </head>
 <body>
-    <!-- Navigation -->
-    <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark" aria-label="Main navigation">
-        <div class="container">
-            <div id="nav_logo-component"></div>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark " aria-label="Main navigation" style="padding-bottom:0.3rem;">
+        <div class="container" style="align-items: baseline;">
+            <!-- Logo -->
+            <a class="navbar-brand logo-image" href="index.html">
+                <img src="./assets/images/Smart_Choice_M&F_LOGO.svg" alt="Smart Choice Logo">
+            </a>
 
-            <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+            <!-- Navbar Toggler -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-   <div class="d-flex">
-            <div id="page-navbar-component" class="me-2"></div>
 
-            <div style align="right">
-                <a class=" btn btn-primary text-white px-4 py-2" style="padding-left:2rem" href="Booking.html">
+            <!-- Mobile Booking Button (visible only on small screens) -->
+            <a class="mobile-booking-btn btn px-3 py-1 d-lg-none" href="Booking.html">
+                <i class="fas fa-calendar-check me-1"></i> Book
+            </a>
+
+            <!-- Regular Nav Items (hidden on mobile) -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html#header">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contactlocation">Location</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown">Details</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="terms.html">Terms Conditions</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <!-- Desktop Booking Button (hidden on mobile) -->
+                <a class="btn btn-primary text-white px-4 py-2 ms-3 d-none d-lg-inline-block" href="Booking.html">
                     <i class="fas fa-calendar-check me-2"></i> Free Booking
                 </a>
             </div>
-        </div> <!-- end of container -->
+
         </div>
     </nav>
 
