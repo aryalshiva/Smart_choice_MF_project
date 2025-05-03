@@ -512,58 +512,48 @@
     
     <script src="./js/components.js"></script> <!-- Custom components scripts -->
 
-
-
-
-
-
-
-
-
-
  <!-- Popup Card -->
 <div id="popupCard" style="
   position: fixed;
   top: 60%;
   left: 50%;
-  transform: translate(-100%, -50%) scale(1.2);
+  transform: translate(-100%, -50%) scale(1.1); /* Reduced scale */
   opacity: 0;
   background: white;
-  border-radius: 20px;
-  box-shadow: 0 12px 36px rgba(0,0,0,0.15);
-  max-width: 380px;     /* ⬅️ Reduced from 480px */
-  width: 88%;           /* ⬅️ Adjusted to fit smaller screens better */
+  border-radius: 16px; /* Slightly smaller border radius */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15); /* Reduced shadow */
+  max-width: 320px; /* Reduced width */
+  width: 80%; /* Adjusted for smaller screens */
   z-index: 1000;
-  padding: 20px 18px;   /* ⬅️ Reduced padding */
+  padding: 16px; /* Reduced padding */
   pointer-events: none;
   transition: transform 0.5s ease, opacity 0.5s ease;
 ">
 
-
   <!-- Close Button (red) -->
   <button onclick="closePopup()" style="
     position: absolute;
-    top: 14px;
-    right: 14px;
+    top: 12px;
+    right: 12px;
     background-color: #ff4d4f;
     border: none;
     color: white;
-    font-size: 14px;
+    font-size: 12px; /* Reduced font size */
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 28px; /* Reduced size */
+    height: 28px;
     cursor: pointer;
     font-weight: bold;
     line-height: 1;
   ">×</button>
 
   <!-- Image -->
-  <img src="./assets/images/home3.jpg" alt="Popup" style="width: 100%; border-radius: 14px; max-height: 220px; object-fit: cover;">
+  <img src="./assets/images/home3.jpg" alt="Popup" style="width: 100%; border-radius: 12px; max-height: 180px; object-fit: cover;"> <!-- Reduced max-height -->
 
   <!-- Content -->
-  <div style="text-align: center; margin-top: 22px;">
-    <h4 style="color: #23194f; font-size: 1.5rem;">Let’s Talk Finance</h4>
-    <p style="color: #555; font-size: 15px;">
+  <div style="text-align: center; margin-top: 18px;">
+    <h4 style="color: #23194f; font-size: 1.2rem;">Let’s Talk Finance</h4> <!-- Reduced font size -->
+    <p style="color: #555; font-size: 14px;"> <!-- Reduced font size -->
       Book a free consultation with <strong style="color:#7F51E8;">Smart Choice Mortgage & Finance</strong> to explore your best loan plan options.
     </p>
     
@@ -571,14 +561,13 @@
     <a href="Booking.html" class="btn" style="
       background-color: #7F51E8;
       color: white;
-      padding: 11px 24px;
-      border-radius: 10px;
-      border-image-slice: 0;
+      padding: 10px 20px; /* Reduced padding */
+      border-radius: 8px; /* Slightly smaller border radius */
       text-decoration: none;
       display: inline-block;
-      margin-top: 14px;
+      margin-top: 12px;
       font-weight: 500;
-      font-size: 16px;
+      font-size: 14px; /* Reduced font size */
     ">🏠 Free Booking</a>
   </div>
 </div>
@@ -591,13 +580,13 @@
   function showPopup() {
     popup.style.opacity = '1';
     popup.style.pointerEvents = 'auto';
-    popup.style.transform = 'translate(-50%, -50%) scale(1.2)';
+    popup.style.transform = 'translate(-50%, -50%) scale(1.1)'; /* Adjusted scale */
   }
 
   function closePopup() {
     popup.style.opacity = '0';
     popup.style.pointerEvents = 'none';
-    popup.style.transform = 'translate(-100%, -50%) scale(1.2)';
+    popup.style.transform = 'translate(-100%, -50%) scale(1.1)'; /* Adjusted scale */
   }
 
   window.addEventListener('scroll', function () {
