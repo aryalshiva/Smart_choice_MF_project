@@ -31,6 +31,8 @@ Table Of Contents:
 	
 	--gradient: linear-gradient(to right, #43bdfa, #23194f);
 	--gradient-light: linear-gradient(to right, #43bdfa, #23194f);	
+
+	--fourth: #241176;
 	
 	
 }
@@ -96,9 +98,12 @@ li {
 .services,
 .work,
 .contact,
-.testimonial,
-.footer {
+.testimonial {
   	background-color: var(--primary);
+}
+
+.footer {
+ background-color: var(--fourth);
 }
 
 .about,
@@ -148,7 +153,8 @@ li {
     font-weight: 500;
     font-size: 1rem;
     line-height: 1.5;
-    background-color: var(--secondary);
+    /*background-color: var(--secondary);*/
+	background-color: var(--fourth);
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.025);
     padding: 1rem 0; /* Increased base padding */
     transition: padding 0.3s ease; /* Smooth padding transition */
@@ -372,7 +378,7 @@ li {
 	max-width: 80%;
   }
   .navbar{
-	background-color: var(--secondary);
+	background-color: var(--fourth);
   }
 }
 
@@ -794,7 +800,8 @@ li {
 .ex-header {
 	padding-top: 8.5rem;
 	padding-bottom: 4rem;
-	background-color:#181a3b;
+	/*background-color:#181a3b;*/
+	background-color: var(--fourth);
 }
 
 .ex-header h1 {
@@ -888,7 +895,8 @@ li {
 	.navbar.top-nav-collapse {
 		padding-top: 0.5rem;
 		padding-bottom: 0.5rem;
-		background-color:#181a3b ;
+		/*background-color:#181a3b ;*/
+		background-color:var(--fourth) ;
 		box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.025);
 	}
 
@@ -965,6 +973,7 @@ li {
 	}
 
 	.navbar {
-		background-color: var(--secondary);
+		/*background-color: var(--secondary);*/
+		background-color:var(--fourth) ;
 	  }
 }

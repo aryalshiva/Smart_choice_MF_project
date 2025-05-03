@@ -41,19 +41,52 @@
 </head>
 <body>
 
-<!-- Navigation -->
-<nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark" aria-label="Main navigation">
-    <div class="container">
-        <div id="nav_logo-component"></div>
-        <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div id="page-navnbar-component"></div>
-    </div>
-</nav>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark " aria-label="Main navigation" style="padding-bottom:0.3rem;background-color: #241176;">
+        <div class="container" style="align-items: baseline;">
+            <!-- Logo -->
+            <a class="navbar-brand logo-image" href="index.html">
+                <img src="./assets/images/Smart_Choice_M&F_LOGO.svg" alt="Smart Choice Logo">
+            </a>
+
+            <!-- Navbar Toggler -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <!-- Regular Nav Items (hidden on mobile) -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html#header">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contactlocation">Location</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown">Details</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="terms.html">Terms Conditions</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
 
 <!-- Header -->
-<header class="ex-header">
+<header class="ex-header"style="background-color:#241176;">
     <div class="container">
         <div class="row">
             <div class="col-xl-10 offset-xl-1">
