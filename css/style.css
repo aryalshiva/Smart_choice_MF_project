@@ -293,7 +293,7 @@ li {
 /*     Home     */
 /****************/
 .home {
-	background-image: url(../assets/images/SmartChoiceMortgageandFinance_background_image.png);
+	background-image: url(../assets/images/SmartChoiceMortgageandFinance_background_image.jpg);
 	background-size: cover;
 	background-position: center bottom;
 	background-repeat: no-repeat;
@@ -302,7 +302,19 @@ li {
 
 @media only screen and (max-width: 540px) {
 	.home {
-		background-image: url(../assets/images/SmartChoiceMortgageandFinance_background_image.png);
+		background-image: url(../assets/images/Untitled-4.jpg);
+	}
+}
+
+@media only screen and (max-width: 360px) {
+	.home {
+		background-image: url(../assets/images/SmartChoiceMortgageandFinance_background_image_small.jpg);
+	}
+}
+
+@media only screen and (max-width: 540px) {
+	.home {
+		background-image: url(../assets/images/SmartChoiceMortgageandFinance_background_image_small.jpg);
 		background-size: cover;
 		background-position: center bottom;
 		background-repeat: no-repeat;
@@ -312,7 +324,7 @@ li {
 
 @media only screen and (max-width: 360px) {
 	.home {
-		background-image: url(../assets/images/SmartChoiceMortgageandFinance_background_image.png);
+		background-image: url(../assets/images/SmartChoiceMortgageandFinance_background_image_small.jpg);
 		background-size: cover;
 		background-position: center bottom;
 		background-repeat: no-repeat;
