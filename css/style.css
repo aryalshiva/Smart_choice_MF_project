@@ -304,11 +304,35 @@ li {
 	background-attachment: fixed;
 }
 
-@media only screen and (max-width: 540px) {
+/* iOS Safari fix for background-attachment: fixed */
+/* This is a workaround for iOS Safari, which does not support fixed background images properly. */
+@supports (-webkit-touch-callout: none) {
 	.home {
-		background-image: url(../assets/images/Untitled-4.jpg);
+		background-attachment: scroll;
+		position: relative;
+	}
+	.home::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: url(../assets/images/SmartChoiceMortgageandFinance_background_image.jpg) no-repeat center center;
+		background-size: cover;
+		z-index: -1;
+	}
+
+	/* iOS-specific small screen image */
+	@media only screen and (max-width: 540px) {
+		.home::after {
+			background-image: url(../assets/images/SmartChoiceMortgageandFinance_background_image_small.jpg);
+		}
 	}
 }
+  
+
+
 
 @media only screen and (max-width: 360px) {
 	.home {
