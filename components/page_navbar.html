@@ -1,7 +1,26 @@
-            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault" >
-                <ul class="navbar-nav ms-auto navbar-nav-scroll">
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark " aria-label="Main navigation" style="padding-bottom:0.3rem;">
+        <div class="container" style="align-items: baseline;">
+            <!-- Logo -->
+            <a class="navbar-brand logo-image" href="index.html">
+                <img src="./assets/images/Smart_Choice_M&F_LOGO.svg" alt="Smart Choice Logo">
+            </a>
+
+            <!-- Navbar Toggler -->
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Mobile Booking Button (visible only on small screens) -->
+            <a class="mobile-booking-btn btn px-3 py-1 d-lg-none" href="Booking.html">
+                <i class="fas fa-calendar-check me-1"></i> Book
+            </a>
+
+            <!-- Regular Nav Items (hidden on mobile) -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html#header">Home</a>
+                        <a class="nav-link active" href="index.html#header">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.html#about">About</a>
@@ -13,17 +32,19 @@
                         <a class="nav-link" href="index.html#contactlocation">Location</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false" href="#">Details</a>
-                        
-                        <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                            <li><div class="dropdown-divider"></div></li>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown">Details</a>
+                        <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="terms.html">Terms Conditions</a></li>
-                            <li><div class="dropdown-divider"></div></li>
+                            <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="privacy.html">Privacy Policy</a></li>
                         </ul>
                     </li>
                 </ul>
-            </div> <!-- end of navbar-collapse -->
-        <div>
-    <div>
-<div>
+                
+                <!-- Desktop Booking Button (hidden on mobile) -->
+                <a class="btn btn-primary text-white px-4 py-2 ms-3 d-none d-lg-inline-block" href="Booking.html">
+                    <i class="fas fa-calendar-check me-2"></i> Free Booking
+                </a>
+            </div>
+        </div>
+    </nav>
