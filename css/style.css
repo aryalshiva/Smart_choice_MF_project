@@ -36,6 +36,10 @@ Table Of Contents:
 	
 	
 }
+/* Add your custom styles here */
+html, body {
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
 
 html {
 	scroll-padding-top: 55px; /* adjust based on your header height */
