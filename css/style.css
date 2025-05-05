@@ -311,7 +311,7 @@ li {
 /*     Home     */
 /****************/
 .home {
-	background-image: url(assets/images/SmartChoiceMortgageandFinance_background_image.jpg);
+	background-image: url("/assets/images/SmartChoiceMortgageandFinance_background_image.jpg");
 	background-size: cover;
 	background-position: center bottom;
 	background-repeat: no-repeat;
@@ -332,7 +332,7 @@ li {
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: url(assets/images/SmartChoiceMortgageandFinance_background_image.jpg) no-repeat center center;
+		background: url("/assets/images/SmartChoiceMortgageandFinance_background_image.jpg") no-repeat center center;
 		background-size: cover;
 		z-index: -1;
 	}
@@ -340,7 +340,7 @@ li {
 	/* iOS-specific small screen image */
 	@media only screen and (max-width: 540px) {
 		.home::after {
-			background-image: url(assets/images/SmartChoiceMortgageandFinance_background_image_small.jpg);
+			background-image: url("/assets/images/SmartChoiceMortgageandFinance_background_image_small.jpg");
 		}
 	}
 }
@@ -350,13 +350,13 @@ li {
 
 @media only screen and (max-width: 360px) {
 	.home {
-		background-image: url(assets/images/SmartChoiceMortgageandFinance_background_image_small.jpg);
+		background-image: url("/assets/images/SmartChoiceMortgageandFinance_background_image_small.jpg");
 	}
 }
 
 @media only screen and (max-width: 540px) {
 	.home {
-		background-image: url(assets/images/SmartChoiceMortgageandFinance_background_image_small.jpg);
+		background-image: url("/assets/images/SmartChoiceMortgageandFinance_background_image_small.jpg");
 		background-size: cover;
 		background-position: center bottom;
 		background-repeat: no-repeat;
@@ -366,7 +366,7 @@ li {
 
 @media only screen and (max-width: 360px) {
 	.home {
-		background-image: url(assets/images/SmartChoiceMortgageandFinance_background_image_small.jpg);
+		background-image: url("/assets/images/SmartChoiceMortgageandFinance_background_image_small.jpg");
 		background-size: cover;
 		background-position: center bottom;
 		background-repeat: no-repeat;
