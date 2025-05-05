@@ -128,3 +128,22 @@ AOS.init({
     easing: "ease",
     once: true, // whether animation should happen only once - while scrolling down
 });
+
+// HIDE THE NAVBAR ON CLICKING A LINK (FOR MOBILE VIEW)
+// This code will hide the navbar when a link is clicked in mobile view
+  document.addEventListener("DOMContentLoaded", function () {
+    const navbarCollapse = document.getElementById("navbarNav");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        if (navbarCollapse.classList.contains("show")) {
+          const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+            toggle: true
+          });
+          bsCollapse.hide();
+        }
+      });
+    });
+  });
+

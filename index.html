@@ -595,7 +595,7 @@
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
-    if (scrollTop > scrollHeight / 2) {
+    if (scrollTop > scrollHeight / 5) { // Show popup after scrolling 20% of the page
       showPopup();
       shownPopup = true;
     }
