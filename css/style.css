@@ -93,6 +93,20 @@ li {
 	height: 90vh;
 	position: relative;
 }
+/* about us glow */
+.glow-hover-img {
+	border: 1px solid white;
+	border-radius: 50%;
+	transition: all 0.3s ease;
+}
+
+.glow-hover-img:hover {
+	box-shadow: 8px 8px 20px rgba(0, 191, 255, 0.6);
+	border: 3px solid white;
+	transform: scale(1.05);
+}
+
+
 
 .work {
 	height: 90vh;
