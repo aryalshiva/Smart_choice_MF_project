@@ -363,9 +363,7 @@
     <script>
         let mortgageChart;
 
-        document.getElementById('mortgage-form').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent form submission
-
+        function runMortgageCalculator() {
             // Retrieve input values
             const totalMortgage = parseFloat(document.getElementById('total-mortgage').value);
             const depositPercentage = parseFloat(document.getElementById('deposit-percentage').value);
@@ -385,7 +383,6 @@
             const loanAmount = totalMortgage - depositAmount;
 
             const monthlyPayment = (loanAmount * interestRate) / (1 - Math.pow(1 + interestRate, -loanDuration));
-
 
             const resultsTableBody = document.querySelector('#results-table tbody');
             resultsTableBody.innerHTML = '';
@@ -542,7 +539,7 @@
                     options: chartOptions
                 });
             }
-        });
+        }
     </script>
 
 
