@@ -89,6 +89,10 @@ li {
 	position: relative;
 }
 
+.services {
+	padding-top: 4rem;
+}
+
 .about {
 	height: 90vh;
 	position: relative;
@@ -316,64 +320,41 @@ li {
 	background-position: center bottom;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-}
-
-/* iOS Safari fix for background-attachment: fixed */
-/* This is a workaround for iOS Safari, which does not support fixed background images properly. */
-@supports (-webkit-touch-callout: none) {
+  }
+  
+  /* iOS Safari fix */
+  @supports (-webkit-touch-callout: none) {
 	.home {
-		background-attachment: scroll;
-		position: relative;
+	  background-image: none; /* Prevents duplicate background */
+	  position: relative;
 	}
 	.home::after {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: url('../SCMFI.jpg') no-repeat center center;
-		background-size: cover;
-		z-index: -1;
+	  content: "";
+	  position: fixed; /* Makes it stay in place */
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  background: url('../SCMFI.jpg') no-repeat center center;
+	  background-size: cover;
+	  z-index: -1;
 	}
-
+  
 	/* iOS-specific small screen image */
 	@media only screen and (max-width: 540px) {
-		.home::after {
-			background-image: url('../SCMFI_small.jpg');
-		}
+	  .home::after {
+		background-image: url('../SCMFI_small.jpg');
+	  }
 	}
-}
+  }
   
-
-
-
-@media only screen and (max-width: 360px) {
+  /* Non-iOS small screens */
+  @media only screen and (max-width: 540px) and (not (-webkit-touch-callout: none)) {
 	.home {
-		background-image: url('../SCMFI_small.jpg');
+	  background-image: url('../SCMFI_small.jpg');
 	}
-}
-
-@media only screen and (max-width: 540px) {
-	.home {
-		background-image: url('../SCMFI_small.jpg');
-		background-size: cover;
-		background-position: center bottom;
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-	}
-}
-
-@media only screen and (max-width: 360px) {
-	.home {
-		background-image: url('../SCMFI_small.jpg');
-		background-size: cover;
-		background-position: center bottom;
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-	}
-}
-
+  }
+  
 .para {
   	width: 50%;
 }
