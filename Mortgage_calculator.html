@@ -363,8 +363,9 @@
         let mortgageChart;
 
         document.getElementById('mortgage-form').addEventListener('submit', function (event) {
-            event.preventDefault();
+            event.preventDefault(); // Prevent form submission
 
+            // Retrieve input values
             const totalMortgage = parseFloat(document.getElementById('total-mortgage').value);
             const depositPercentage = parseFloat(document.getElementById('deposit-percentage').value);
             const interestRate = parseFloat(document.getElementById('interest-rate').value) / 100 / 12;
@@ -372,10 +373,18 @@
             const currency = document.getElementById('currency').value;
             const calculationPeriod = document.getElementById('calculation-period').value;
 
+            // Ensure all required fields are filled and valid
+            if (isNaN(totalMortgage) || isNaN(depositPercentage) || isNaN(interestRate) || isNaN(loanDuration)) {
+                alert('Please fill in all fields with valid values.');
+                return;
+            }
+
+            // Perform calculations only after validation
             const depositAmount = totalMortgage * (depositPercentage / 100);
             const loanAmount = totalMortgage - depositAmount;
 
             const monthlyPayment = (loanAmount * interestRate) / (1 - Math.pow(1 + interestRate, -loanDuration));
+
 
             const resultsTableBody = document.querySelector('#results-table tbody');
             resultsTableBody.innerHTML = '';
