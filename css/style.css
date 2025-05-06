@@ -320,16 +320,25 @@ li {
 	background-position: center bottom;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-  } 
-  
-/* Small screen image fix */
-  @media only screen and (max-width: 540px) {
-	.home {
-	  background-image: url('../SCMFI_small.jpg') !important;
-	}
   }
   
-
+  /* iOS Safari fix */
+  @supports (-webkit-touch-callout: none) {
+	.home {
+	  background-image: none; /* Prevents duplicate background */
+	  position: relative;
+	}
+	.home::after {
+	  content: "";
+	  position: fixed; /* Makes it stay in place */
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  background: url('../SCMFI.jpg') no-repeat center center;
+	  background-size: cover;
+	  z-index: -1;
+	}
   
 	/* iOS-specific small screen image */
 	@media only screen and (max-width: 540px) {
@@ -337,6 +346,7 @@ li {
 		background-image: url('../SCMFI_small.jpg');
 	  }
 	}
+  }
   
   /* Non-iOS small screens */
   @media only screen and (max-width: 540px) and (not (-webkit-touch-callout: none)) {
@@ -344,7 +354,7 @@ li {
 	  background-image: url('../SCMFI_small.jpg');
 	}
   }
-  
+ 
 .para {
   	width: 50%;
 }
