@@ -131,13 +131,16 @@ AOS.init({
 
 // HIDE THE NAVBAR ON CLICKING A LINK (FOR MOBILE VIEW)
 // This code will hide the navbar when a link is clicked in mobile view
-  document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     const navbarCollapse = document.getElementById("navbarNav");
     const navLinks = document.querySelectorAll(".nav-link");
-
+  
     navLinks.forEach(link => {
-      link.addEventListener("click", () => {
-        if (navbarCollapse.classList.contains("show")) {
+      link.addEventListener("click", (e) => {
+        const isDropdownToggle = link.classList.contains("dropdown-toggle");
+  
+        // If it's not a dropdown toggle and navbar is shown, collapse it
+        if (!isDropdownToggle && navbarCollapse.classList.contains("show")) {
           const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
             toggle: true
           });
@@ -146,4 +149,5 @@ AOS.init({
       });
     });
   });
+  
 
