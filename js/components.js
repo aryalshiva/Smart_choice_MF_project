@@ -27,6 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 'card-component', file: 'card_design.html' },
 
         { id: 'pop-component', file: 'popup.html' },
+
+        { id: 'review-buttons-component', file: 'review_buttons.html' },
     ];
 
     components.forEach(component => {

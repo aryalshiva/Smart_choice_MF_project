@@ -567,6 +567,36 @@ li {
 }
 
 /********************/
+/*     Review  Button    */
+/********************/
+
+.review-buttons-container {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.review-button {
+    display: inline-block;
+    padding: 0.7rem 1rem; /* Increased padding */
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 25px;
+    color: black;
+    font-weight: bold;
+    margin: 0 10px; /* Add horizontal margin for spacing */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.review-button:hover {
+    color: purple;
+    border-color: purple;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/********************/
 /*     FAQ     */
 /********************/
 

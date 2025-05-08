@@ -546,7 +546,7 @@
                                     <div class="testimonial-header-wrapper">
                                         <div class="testimonial-header">
                                             <img src="./assets/images/reviews/Reviewer_image6.jpg" alt="testimonial" class="reviewer-img">
-                                            <h6 class="reviewer-name">Sapana Poudel</h6>
+                                            <h6 class="reviewer-name">Sapana Timilsina</h6>
                                         </div>
                                         <div class="image-preview">
                                             <img src="./assets/images/reviews/Reviewer_image6.jpg" alt="preview">
@@ -570,54 +570,49 @@
             </div>
         </div>
     </div>
+<!-- end of testimonials section -->
 
 
 
+<div id="review-buttons-component"></div>
 
+<div id="contact-component"></div>
 
-    <div id="contact-component"></div>
+<div id="footer-component"></div>
 
-    <div id="footer-component"></div>
+<div id="bottom-component"></div>
 
-    <div id="bottom-component"></div>
+<!-- Back To Top Button -->
+<button onclick="topFunction()" id="myBtn">
+    <img src="assets/images/up-arrow.png" alt="alternative">
+</button>
+<!-- end of back to top button -->
 
+<!-- Scripts is important for smooth transaction link -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if URL has a hash
+    if(window.location.hash) {
+        // Wait a brief moment for all elements to load
+        setTimeout(function() {
+            const target = document.querySelector(window.location.hash);
+            if(target) {
+                // Smooth scroll to the target
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 250);
+    }
+});
+</script>
 
+<!-- Scripts -->
+<script src="./js/bootstrap.min.js"></script><!-- Bootstrap framework -->
+<script src="./js/purecounter.min.js"></script> <!-- Purecounter counter for statistics numbers -->
+<script src="./js/swiper.min.js"></script><!-- Swiper for image and text sliders -->
+<script src="./js/aos.js"></script><!-- AOS on Animation Scroll -->
+<script src="./js/script.js"></script>  <!-- Custom scripts -->
 
-    <!-- Back To Top Button -->
-    <button onclick="topFunction()" id="myBtn">
-        <img src="assets/images/up-arrow.png" alt="alternative">
-    </button>
-    <!-- end of back to top button -->
-    
-    
-    <!-- Scripts is important for smooth transaction link -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Check if URL has a hash
-        if(window.location.hash) {
-            // Wait a brief moment for all elements to load
-            setTimeout(function() {
-                const target = document.querySelector(window.location.hash);
-                if(target) {
-                    // Smooth scroll to the target
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 250);
-        }
-    });
-    </script>
-
-    
-    <!-- Scripts -->
-    <script src="./js/bootstrap.min.js"></script><!-- Bootstrap framework -->
-    <script src="./js/purecounter.min.js"></script> <!-- Purecounter counter for statistics numbers -->
-    <script src="./js/swiper.min.js"></script><!-- Swiper for image and text sliders -->
-    <script src="./js/aos.js"></script><!-- AOS on Animation Scroll -->
-    <script src="./js/script.js"></script>  <!-- Custom scripts -->
-    
-    <script src="./js/components.js"></script> <!-- Custom components scripts -->
-
- <!-- Popup Card -->
+<script src="./js/components.js"></script>
 <div id="popupCard" style="
   position: fixed;
   top: 60%;
