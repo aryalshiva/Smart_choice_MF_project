@@ -216,7 +216,7 @@ li {
     padding: 0.75rem 1rem; /* More balanced padding */
     transition: all 0.2s ease;
     position: relative;
-	color: rgb(76, 0, 255) !important;
+	color: #7F51E8ff !important;
 }
 
 .navbar .nav-item .nav-link:hover {
@@ -329,11 +329,8 @@ li {
 /****************/
 /*     Home     */
 /****************/
-.home-bg {
+.home {
 	background-image: url('../SCMFI.jpg');
-	opacity: 0.9;
-	filter: blur(2px);
-	background-color: black;
 	background-size: cover;
 	background-position: center bottom;
 	background-repeat: no-repeat;
@@ -342,11 +339,11 @@ li {
   
   /* iOS Safari fix */
   @supports (-webkit-touch-callout: none) {
-	.home-bg {
+	.home {
 	  background-image: none; /* Prevents duplicate background */
 	  position: relative;
 	}
-	.home-bg::after {
+	.home::after {
 	  content: "";
 	  position: fixed; /* Makes it stay in place */
 	  top: 0;
@@ -360,15 +357,15 @@ li {
   
 	/* iOS-specific small screen image */
 	@media only screen and (max-width: 540px) {
-		.home-bg {
-			background-image: url('../SCMFI_small.jpg');
-		}
+	  .home::after {
+		background-image: url('../SCMFI_small.jpg');
+	  }
 	}
   }
   
   /* Non-iOS small screens */
   @media only screen and (max-width: 540px) and (not (-webkit-touch-callout: none)) {
-	.home-bg {
+	.home {
 	  background-image: url('../SCMFI_small.jpg');
 	}
   }
