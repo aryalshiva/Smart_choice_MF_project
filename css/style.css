@@ -205,10 +205,18 @@ li {
 }
 
 /* Nav items styling */
+.navbar.top-nav-collapse .nav-item .nav-link {
+    padding: 0.75rem 1rem; /* More balanced padding */
+    transition: all 0.2s ease;
+    position: relative;
+	color: #fff !important;
+}
+
 .navbar .nav-item .nav-link {
     padding: 0.75rem 1rem; /* More balanced padding */
     transition: all 0.2s ease;
     position: relative;
+	color: rgb(76, 0, 255) !important;
 }
 
 .navbar .nav-item .nav-link:hover {
@@ -274,6 +282,13 @@ li {
     }
 }
 
+/* nav color  */
+@media (max-width: 992px) {
+	.navbar.top-nav-collapse .nav-item .nav-link, .navbar .nav-item .nav-link {
+		color: #fff !important;
+	}
+}
+
 /* Desktop enhancements */
 @media (min-width: 992px) {
     .navbar {
@@ -314,8 +329,11 @@ li {
 /****************/
 /*     Home     */
 /****************/
-.home {
+.home-bg {
 	background-image: url('../SCMFI.jpg');
+	opacity: 0.9;
+	filter: blur(2px);
+	background-color: black;
 	background-size: cover;
 	background-position: center bottom;
 	background-repeat: no-repeat;
@@ -324,11 +342,11 @@ li {
   
   /* iOS Safari fix */
   @supports (-webkit-touch-callout: none) {
-	.home {
+	.home-bg {
 	  background-image: none; /* Prevents duplicate background */
 	  position: relative;
 	}
-	.home::after {
+	.home-bg::after {
 	  content: "";
 	  position: fixed; /* Makes it stay in place */
 	  top: 0;
@@ -342,15 +360,15 @@ li {
   
 	/* iOS-specific small screen image */
 	@media only screen and (max-width: 540px) {
-	  .home::after {
-		background-image: url('../SCMFI_small.jpg');
-	  }
+		.home-bg::after {
+			background-image: url('../SCMFI_small.jpg');
+		}
 	}
   }
   
   /* Non-iOS small screens */
   @media only screen and (max-width: 540px) and (not (-webkit-touch-callout: none)) {
-	.home {
+	.home-bg {
 	  background-image: url('../SCMFI_small.jpg');
 	}
   }
