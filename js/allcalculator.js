@@ -3,9 +3,12 @@ document.querySelectorAll('.tab').forEach(tab => {
     tab.addEventListener('click', () => {
         document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
-        
+
         document.querySelectorAll('.calculator').forEach(calc => calc.classList.remove('active'));
         document.querySelector(tab.dataset.target).classList.add('active');
+
+        // Hide chart when switching tabs
+        document.querySelector('.chart-container').style.display = 'none';
     });
 });
 
@@ -61,6 +64,8 @@ function initializeChart() {
 
 // Initialize chart when page loads
 window.addEventListener('load', initializeChart);
+document.getElementById('financialChart').parentElement.style.display = 'none';
+
 
 // Helper function to update chart
 function updateChart(labels, data, label, chartType = 'bar') {
@@ -136,6 +141,7 @@ document.getElementById('calculate-future-value').addEventListener('click', () =
     const labels = ['Principal', 'Future Value'];
     const data = [principal, futureValue];
     updateChart(labels, data, 'Future Value Calculation');
+    document.getElementById('financialChart').parentElement.style.display = 'block';
 });
 
 // Loan Calculator
@@ -163,6 +169,7 @@ document.getElementById('calculate-loan').addEventListener('click', () => {
     const labels = ['Principal', 'Interest'];
     const data = [principal, interestAmount];
     updateChart(labels, data, 'Loan Breakdown', 'pie');
+    document.getElementById('financialChart').parentElement.style.display = 'block';
 });
 
 // Savings Calculator
@@ -188,6 +195,7 @@ document.getElementById('calculate-savings').addEventListener('click', () => {
     const labels = ['Initial Savings', 'Contributions', 'Interest Earned'];
     const data = [principal, contribution * time, interestEarned];
     updateChart(labels, data, 'Savings Breakdown', 'pie');
+    document.getElementById('financialChart').parentElement.style.display = 'block';
 });
 
 // Mortgage Calculator
@@ -223,6 +231,7 @@ document.getElementById('calculate-mortgage').addEventListener('click', () => {
     const labels = ['Loan Amount', 'Interest'];
     const data = [loanAmount, interestAmount];
     updateChart(labels, data, 'Mortgage Breakdown', 'pie');
+    document.getElementById('financialChart').parentElement.style.display = 'block';
 });
 
 // Investment Calculator
@@ -241,4 +250,5 @@ document.getElementById('calculate-investment').addEventListener('click', () => 
     const labels = ['Initial Investment', 'Profit'];
     const data = [principal, profitAmount];
     updateChart(labels, data, 'Investment Breakdown');
+    document.getElementById('financialChart').parentElement.style.display = 'block';
 });

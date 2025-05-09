@@ -246,6 +246,7 @@
             <button type="submit">Calculate</button>
         </form>
 
+
         <h2>Results</h2>
 
         <div id="calculated-values">
@@ -253,12 +254,13 @@
             <p>Interest Paid: <span id="interest-paid"></span></p>
             <p>Monthly Repayment Amount: <span id="monthly-repayment-amount"></span></p>
         </div>
-
+        
+    <div id="results-section" style="display: none;">
         <div>
             <label for="graph-type">Graph Type:</label>
             <select id="graph-type" name="graph-type" onchange="document.getElementById('mortgage-form').dispatchEvent(new Event('submit'))">
-            <option value="repayment">Show Repayment Breakdown</option>
-            <option value="equity">Show Equity Breakdown</option>
+                <option value="repayment">Show Repayment Breakdown</option>
+                <option value="equity">Show Equity Breakdown</option>
             </select>
         </div>
 
@@ -278,6 +280,8 @@
                 <!-- Results will be inserted here -->
             </tbody>
         </table>
+    </div>
+
     </main>
     <script>
         let mortgageChart;
@@ -291,6 +295,7 @@
             const loanDuration = parseInt(document.getElementById('loan-duration').value) * 12;
             const currency = document.getElementById('currency').value;
             const calculationPeriod = document.getElementById('calculation-period').value;
+            document.getElementById('results-section').style.display = 'block';
 
             const depositAmount = totalMortgage * (depositPercentage / 100);
             const loanAmount = totalMortgage - depositAmount;
