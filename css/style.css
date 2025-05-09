@@ -360,7 +360,7 @@ li {
   
 	/* iOS-specific small screen image */
 	@media only screen and (max-width: 540px) {
-		.home-bg::after {
+		.home-bg {
 			background-image: url('../SCMFI_small.jpg');
 		}
 	}
