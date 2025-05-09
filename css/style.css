@@ -587,7 +587,8 @@ li {
 
 .review-buttons-container {
     text-align: center;
-    margin-top: 3rem;
+    padding-top: 3rem;
+	background-color:white !important;
 }
 
 .review-button {
