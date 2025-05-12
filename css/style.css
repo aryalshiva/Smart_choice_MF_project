@@ -372,7 +372,13 @@ li {
 	  background-image: url('../SCMFI_small.jpg');
 	}
   }
- 
+
+  @media only screen and (max-width: 540px) {
+	.home {
+	  background-image: url('../SCMFI_small.jpg');
+	}
+  }
+
 .para {
   	width: 50%;
 }
