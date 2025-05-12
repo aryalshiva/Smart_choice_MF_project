@@ -365,21 +365,14 @@ li {
 	}
   }
   
-  /* Non-iOS small screens */
   
-  @media only screen and (max-width: 540px) {
+  /* Non-iOS small screens */
+  @media only screen and (max-width: 540px) and (not (-webkit-touch-callout: none)) {
 	.home {
 	  background-image: url('../SCMFI_small.jpg');
-	  background-size: cover;
-	  background-position: center bottom;
-	  background-repeat: no-repeat;
-	  background-attachment: fixed;
-	}
-  } else {
-	.home {
-	  background-image: url('../SCMFI.jpg');
 	}
   }
+ 
 
 .para {
   	width: 50%;
