@@ -328,6 +328,7 @@ li {
     background-size: 100%;
 }
 
+
 /****************/
 /*     Home     */
 /****************/
@@ -365,7 +366,6 @@ li {
 	}
   }
   
-  
   /* Non-iOS small screens */
   @media only screen and (max-width: 540px) and (not (-webkit-touch-callout: none)) {
 	.home {
@@ -373,7 +373,6 @@ li {
 	}
   }
  
-
 .para {
   	width: 50%;
 }
